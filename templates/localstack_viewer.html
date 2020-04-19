@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Service List</title>
+    <style>
+      div {
+          width:100%;
+          height:400px;
+          overflow:auto
+      }
+      table {
+          width: 100%;
+          border: 1px solid black;
+          border-collapse: collapse;
+          border-cellspacing: 0px;
+          border-cellpadding: 0px;
+      }
+      th, td {
+          border: 1px solid black;
+          margin: 1px;
+          padding: 1px;
+          font-size: 12px;
+      }
+    </style>
+</head>
+<body>
+        <h5>AWS Lambda Logs</h5>
+        <div>
+        <table>
+             <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Event Id</th>
+                    <th>Log Stream Name</th>
+                    <th>Lambda Log Message</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for cw_list_line in aws_list["cw_list"] %}
+            <tr>
+                <td>{{ cw_list_line.rowNumber }}</td>
+                <td>{{ cw_list_line.eventId }}</td>
+                <td>{{ cw_list_line.logStreamName }}</td>
+                <td>{{ cw_list_line.message }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+</body>
+
+<body>
+        <h5>AWS S3 File List</h5>
+        <div>
+        <table>
+             <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Bucket Name</th>
+                    <th>Detailed Bucket Prefix</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for s3_list_line in aws_list["s3_list"] %}
+            <tr>
+                <td>{{ s3_list_line.rowNumber }}</td>
+                <td>{{ s3_list_line.bucketName }}</td>
+                <td>{{ s3_list_line.prefix }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+</body>
+
+</html>
