@@ -22,6 +22,10 @@ kinesis firehose를 이용하여 수집된 로그를 s3에 저장합니다.
 **소비자**는 Lambda 로 구현하였습니다.
 
 **로그뷰어** 는 Lambda 함수의 실행 로그 및 S3에 업로드된 로그 파일을 조회할 수 있습니다.
+  
+**[기본 아키텍처]**
+  
+![로그수집아키텍처](https://user-images.githubusercontent.com/63921768/79689198-3129a080-828e-11ea-9dcf-5f7de3822b96.png)
 
 
 ## 3. 로그 수집 프로젝트 상세 구조
@@ -92,6 +96,10 @@ python localstack_view_app.py
 ```html
 http://localhost:7001/list
 ```
+> **3)** 아래와 같이 Lambda 및 S3 로그 파일 조회가 가능합니다.
+
+![로그뷰어](https://user-images.githubusercontent.com/63921768/79689379-65519100-828f-11ea-8801-5b694d5cdc31.png)
+
 ## 6. 전역변수 속성변경
 아래 환경 변수는 windows 10 및 특정 개발환경에 맞추어 설정되었습니다.
 
